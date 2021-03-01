@@ -21,7 +21,7 @@ import React from "react";
 // reactstrap components
 import {Container, Col, Row, Card, CardBody,CardText} from 'reactstrap';
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import ExamplesNavbar from "../components/Navbars/ExamplesNavbar.js";
 import DemoFooter from "../components/Footers/DemoFooter";
 import funfacts from '../dummy data/funfact.json'
 
@@ -47,7 +47,7 @@ function PageHeader() {
             <div
                 style={{
                     backgroundImage:
-                        "url(" + require("assets/img/tea_catalogue.jpeg") + ")",
+                        "url(" + require("../assets/img/tea_catalogue.jpeg") + ")",
                 }}
                 className="page-header page-header-xs"
                 data-parallax={true}
@@ -66,7 +66,7 @@ function PageHeader() {
 }
 
 
-function FunFacts() {
+export function FunFacts() {
     document.documentElement.classList.remove("nav-open");
     React.useEffect(() => {
         document.body.classList.add("fun-facts");
@@ -81,8 +81,8 @@ function FunFacts() {
             <div className="main">
                 <div className="section text-center">
                     <Row className="mr-0 ml-0">
-                        {funfacts.single_fact.map((facts) =>
-                        <Col>
+                        {funfacts.single_fact.map((facts, index) =>
+                        <Col key={index}>
                             <Card style={{width: '30rm'}}>
                                 <CardBody>
                                     <CardText>{facts.fact}</CardText>

@@ -21,9 +21,12 @@ import React from "react";
 // reactstrap components
 import {Container, Table} from 'reactstrap';
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import ExamplesNavbar from "../components/Navbars/ExamplesNavbar.js";
 import DemoFooter from "../components/Footers/DemoFooter";
 import TeaModal from "../components/Page/TeaModal";
+
+const fetch = require("node-fetch");
+
 
 function PageHeader() {
     let pageHeader = React.createRef();
@@ -65,8 +68,7 @@ function PageHeader() {
     );
 }
 
-
-function TeaCatalogue() {
+export default function TeaCatalogue() {
     let [teas, setTeas] = React.useState([])
     fetch('http://localhost:5432/gettea')
         .then((response) => response.json())
@@ -113,5 +115,3 @@ function TeaCatalogue() {
         </>
     );
 }
-
-export default TeaCatalogue;
