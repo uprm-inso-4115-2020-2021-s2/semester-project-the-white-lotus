@@ -99,7 +99,7 @@ export default function TeaCatalogue() {
                             </thead>
                             <tbody>
                             {teas.map((properties) => <tr>
-                                    <th scope="row">{properties.id}</th>
+                                    <td scope="row">{properties.id}</td>
                                     <td>{properties.type}</td>
                                     <td>{properties.name}</td>
                                     <td>{properties.tea_desc}</td>
